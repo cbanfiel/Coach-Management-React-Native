@@ -10,6 +10,9 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default class Login extends React.Component {
 
+    // static navigationOptions = {
+    //     header : null
+    // }
 
     state = {
         email: '',
@@ -27,14 +30,13 @@ export default class Login extends React.Component {
     render() {
 
         return (
-
             <Container style={styles.container}>
 
-<View style = {styles.welcomeContainer}>
-                <Text>Welcome Back...</Text>
+                <View style={styles.welcomeContainer}>
+                    <Text style={styles.title}>Welcome Back...</Text>
 
-                <Text style={styles.error}>{this.state.errorMessage}</Text>
-</View>
+                    <Text style={styles.error}>{this.state.errorMessage}</Text>
+                </View>
 
 
                 <Form>
@@ -61,17 +63,17 @@ export default class Login extends React.Component {
                         full
                         rounded
                         success
-                        style={{ marginTop: 10 }}
+                        style={styles.button}
                         onPress={() => { this.loginUser() }}
                     ><Text>Login</Text></Button>
                 </Form>
-<View style= {styles.welcomeContainer}>
-<Text>New to Coach App? </Text>
-    <TouchableOpacity onPress={()=> this.props.navigation.navigate("Register")}>
-    <Text style={{color:'red'}}>Sign Up!</Text>
-    </TouchableOpacity>
+                <View style={styles.welcomeContainer}>
+                    <Text>New to Coach App? </Text>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate("Register")}>
+                        <Text style={{ color: 'red' }}>Sign Up!</Text>
+                    </TouchableOpacity>
 
-</View>
+                </View>
 
             </Container>
         );
@@ -85,11 +87,18 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 10
     },
-    welcomeContainer:{
-        alignItems:'center',
-        padding:20
+    welcomeContainer: {
+        alignItems: 'center',
+        padding: 20
     },
-    error:{
-        color:'red'
+    error: {
+        color: 'red'
+    },
+    button: {
+        marginTop: 20,
+        backgroundColor: '#26A69A'
+    },
+    title: {
+        fontSize: 18
     }
 });
