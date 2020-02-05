@@ -37,7 +37,7 @@ export default class Register extends React.Component {
 
             <Container style={styles.container}>
                 <View style={styles.welcomeContainer}>
-                    <Text>Sign up to get started...</Text>
+                    <Text style={styles.title}>Sign up to get started...</Text>
                     <Text style={styles.error}>{this.state.errorMessage}</Text>
                 </View>
                 <Form>
@@ -72,7 +72,7 @@ export default class Register extends React.Component {
                         full
                         rounded
                         primary
-                        style={{ marginTop: 10 }}
+                        style={styles.button}
                         onPress={() => { this.signUpUser(this.state.email, this.state.password) }}
                     ><Text>Sign Up</Text></Button>
                 </Form>
@@ -94,5 +94,12 @@ const styles = StyleSheet.create({
     },
     error: {
         color: 'red'
+    },
+    button: {
+        marginTop: 20,
+        backgroundColor: '#26A69A'
+    },
+    title: {
+        fontSize: 18
     }
 });
